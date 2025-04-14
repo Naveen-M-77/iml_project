@@ -16,21 +16,27 @@ This project implements intelligent delivery route optimization using **clusteri
 
 ---
 
-## Overview of Python Scripts
+## 📂 Project Files Overview
+
+---
 
 ### 🔹 `agglomerative_clustering.py`
-- **Method:** Agglomerative (hierarchical) clustering based on latitude/longitude.
-- **TSP:** Nearest Neighbor + 2-opt optimization.
-- **Output:** Plots optimized routes for each cluster.
-- **Best for:** Pure spatial grouping.
+**Approach:** Agglomerative Clustering + TSP Optimization  
+1. Data Loading & Preprocessing  
+2. Agglomerative Clustering  
+3. Route Optimization (Nearest Neighbor + 2-opt)  
+4. Distance Evaluation (Haversine)  
+5. Visualization of Routes  
+
+---
 
 ### 🔹 `time_based_k_means_pp.py`
-- **Method:** Either:
-  - **Time-based Clustering**: Groups deliveries by time windows.
-  - **KMeans++ Clustering**: Groups based on location, with better centroid initialization.
-- **TSP:** Same as above.
-- **Output:** Plots and evaluates route efficiency based on the chosen clustering method.
-- **Best for:** Temporal or hybrid grouping.
+**Approach:** Time-based Binning / KMeans++ + TSP Optimization  
+1. Data Loading & Preprocessing  
+2. Clustering (Time Binning or KMeans++)  
+3. Route Optimization (Nearest Neighbor + 2-opt)  
+4. Distance Evaluation & Comparison  
+5. Route Visualization  
 
 ---
 
