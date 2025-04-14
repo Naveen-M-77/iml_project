@@ -16,11 +16,11 @@ This project implements intelligent delivery route optimization using **clusteri
 
 ---
 
-## 📂 Project Files Overview
+## Project Files Overview
 
 ---
 
-### 🔹 `agglomerative_clustering.py`
+### `agglomerative_clustering.py`
 **Approach:** Agglomerative Clustering + TSP Optimization  
 1. Data Loading & Preprocessing  
 2. Agglomerative Clustering  
@@ -30,7 +30,7 @@ This project implements intelligent delivery route optimization using **clusteri
 
 ---
 
-### 🔹 `time_based_k_means_pp.py`
+### `time_based_k_means_pp.py`
 **Approach:** Time-based Binning / KMeans++ + TSP Optimization  
 1. Data Loading & Preprocessing  
 2. Clustering (Time Binning or KMeans++)  
