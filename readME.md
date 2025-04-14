@@ -70,11 +70,6 @@ python agglomerative_clustering.py --input zomato_dataset.csv
 ```bash
 python route_optimizer_time_kmeans.py
 ```
-
-| Option          | Description                                              |
-|------------------|----------------------------------------------------------|
-| `--input`        | Path to your delivery dataset (CSV)                     |
-
 ---
 
 ## Outputs
