@@ -1,24 +1,22 @@
 
-# 🚚 Cluster based Route Optimization System
+# Cluster based Route Optimization System
 
 This project implements intelligent delivery route optimization using **clustering** techniques and **TSP (Traveling Salesman Problem)** heuristics. It includes two approaches: one using **Agglomerative Clustering**, and another that dynamically selects between **time-based clustering** and **KMeans++**.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 ├── route_optimizer_agglomerative.py      # Agglomerative Clustering + TSP
 ├── route_optimizer_time_kmeans.py        # Time-based OR KMeans++ Clustering + TSP
-├── data/                                 # Folder to store input delivery datasets
-├── outputs/                              # Stores plots and result files
 ├── requirements.txt                      # Python dependencies
-└── README.md                             # You're here!
+└── README.md                             
 ```
 
 ---
 
-## 🧠 Overview of Python Scripts
+## Overview of Python Scripts
 
 ### 🔹 `agglomerative_clustering.py`
 - **Method:** Agglomerative (hierarchical) clustering based on latitude/longitude.
@@ -36,7 +34,7 @@ This project implements intelligent delivery route optimization using **clusteri
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 1. **Clone the repository:**
 
@@ -53,9 +51,9 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 How to Run the Scripts
+## How to Run the Scripts
 
-### ✅ Run Agglomerative Clustering-based Route Optimization
+### Run Agglomerative Clustering-based Route Optimization
 
 ```bash
 python agglomerative_clustering.py --input zomato_dataset.csv
@@ -67,7 +65,7 @@ python agglomerative_clustering.py --input zomato_dataset.csv
 
 ---
 
-### ✅ Run Time-based / KMeans++ Route Optimization
+### Run Time-based / KMeans++ Route Optimization
 
 ```bash
 python route_optimizer_time_kmeans.py
@@ -79,17 +77,16 @@ python route_optimizer_time_kmeans.py
 
 ---
 
-## 📊 Outputs
+## Outputs
 
 - Cluster-wise optimized delivery routes.
 - Total and average distance traveled per cluster.
 
 ---
-`
 
 ---
 
-## 🏁 Results
+## Results
 
 - Efficient route planning with reduced travel distance.
 - Comparison between clustering techniques.
