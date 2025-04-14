@@ -1,5 +1,5 @@
 
-# 🚚 Delivery Route Optimization using Clustering and TSP
+# 🚚 Cluster based Route Optimization System
 
 This project implements intelligent delivery route optimization using **clustering** techniques and **TSP (Traveling Salesman Problem)** heuristics. It includes two approaches: one using **Agglomerative Clustering**, and another that dynamically selects between **time-based clustering** and **KMeans++**.
 
@@ -20,13 +20,13 @@ This project implements intelligent delivery route optimization using **clusteri
 
 ## 🧠 Overview of Python Scripts
 
-### 🔹 `route_optimizer_agglomerative.py`
+### 🔹 `agglomerative_clustering.py`
 - **Method:** Agglomerative (hierarchical) clustering based on latitude/longitude.
 - **TSP:** Nearest Neighbor + 2-opt optimization.
 - **Output:** Plots optimized routes for each cluster.
 - **Best for:** Pure spatial grouping.
 
-### 🔹 `route_optimizer_time_kmeans.py`
+### 🔹 `time_based_k_means_pp.py`
 - **Method:** Either:
   - **Time-based Clustering**: Groups deliveries by time windows.
   - **KMeans++ Clustering**: Groups based on location, with better centroid initialization.
@@ -41,7 +41,7 @@ This project implements intelligent delivery route optimization using **clusteri
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/your-username/delivery-route-optimizer.git
+git clone https://github.com/Naveen-M-77/iml_project.git
 cd delivery-route-optimizer
 ```
 
@@ -58,33 +58,24 @@ pip install -r requirements.txt
 ### ✅ Run Agglomerative Clustering-based Route Optimization
 
 ```bash
-python route_optimizer_agglomerative.py --input data/delivery_locations.csv --clusters 5
+python agglomerative_clustering.py --input zomato_dataset.csv
 ```
 
 | Option        | Description                            |
 |---------------|----------------------------------------|
 | `--input`     | Path to your delivery dataset (CSV)    |
-| `--clusters`  | Number of clusters to form             |
 
 ---
 
 ### ✅ Run Time-based / KMeans++ Route Optimization
 
 ```bash
-python route_optimizer_time_kmeans.py --input data/delivery_data.csv --mode time --time_window 60
+python route_optimizer_time_kmeans.py
 ```
 
 | Option          | Description                                              |
 |------------------|----------------------------------------------------------|
-| `--input`        | CSV file with columns: `latitude`, `longitude`, `time` |
-| `--mode`         | `time` or `kmeans`                                       |
-| `--time_window`  | Time bin size in minutes (only for `time` mode)         |
-| `--clusters`     | Number of KMeans clusters (only for `kmeans` mode)      |
-
-Example for KMeans++ mode:
-```bash
-python route_optimizer_time_kmeans.py --input data/delivery_data.csv --mode kmeans --clusters 4
-```
+| `--input`        | Path to your delivery dataset (CSV)                     |
 
 ---
 
@@ -92,27 +83,9 @@ python route_optimizer_time_kmeans.py --input data/delivery_data.csv --mode kmea
 
 - Cluster-wise optimized delivery routes.
 - Total and average distance traveled per cluster.
-- Matplotlib plots saved in `outputs/` folder.
 
 ---
-
-## 📌 Sample Dataset Format
-
-### For `route_optimizer_agglomerative.py`
-```csv
-latitude,longitude
-12.9716,77.5946
-13.0827,80.2707
-...
-```
-
-### For `route_optimizer_time_kmeans.py`
-```csv
-latitude,longitude,time
-12.9716,77.5946,09:15
-13.0827,80.2707,10:45
-...
-```
+`
 
 ---
 
@@ -123,13 +96,3 @@ latitude,longitude,time
 - Visual feedback through plotted delivery paths.
 
 ---
-
-## 🤝 Contributing
-
-Feel free to fork and improve this repo. Pull requests are welcome!
-
----
-
-## 📄 License
-
-This project is open-source and available under the MIT License.
