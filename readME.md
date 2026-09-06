@@ -80,6 +80,8 @@ python route_optimizer_agglomerative.py --input zomato_dataset.csv --save-plots
 | `--save-plots` | Save route visualizations as PNG images         |
 | `--max-samples`| Maximum rows to sample before clustering        |
 
+> **Note on Performance vs. Completeness:** By default, clustering parameters (like `--max-clusters 30` in the agglomerative approach) and route size limits (truncated to 20 for TSP) trade off completeness against runtime. To optimize routes for a larger portion of the total deliveries in big datasets, you can raise the number of clusters (e.g. `--max-clusters 200`), though this will significantly increase clustering and TSP runtime.
+
 ---
 
 ### Run Time-based / KMeans++ Route Optimization

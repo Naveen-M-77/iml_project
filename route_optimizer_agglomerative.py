@@ -392,6 +392,11 @@ def main():
     avg_distance = total_distance / len(all_routes)
     avg_deliveries = np.mean([r["deliveries"] for r in all_routes])
 
+    # Calculate total routed deliveries
+    total_routed_deliveries = int(sum(r["deliveries"] for r in all_routes))
+    total_dataset_deliveries = len(df)
+    routed_percentage = (total_routed_deliveries / total_dataset_deliveries) * 100
+
     print("\n" + "=" * 60)
     print("  Optimization Summary")
     print("=" * 60)
@@ -400,6 +405,7 @@ def main():
     print(f"  Total optimized distance:  {total_distance:.2f} km")
     print(f"  Average distance/route:    {avg_distance:.2f} km")
     print(f"  Average deliveries/route:  {avg_deliveries:.1f}")
+    print(f"  Deliveries routed:         {total_routed_deliveries} / {total_dataset_deliveries} ({routed_percentage:.1f}%) — see truncation warnings above for clusters that were cut down")
 
     # Naive baseline: sum of individual restaurant→delivery distances
     # for only the points each route actually covers (apples-to-apples)

@@ -473,6 +473,16 @@ def _split_and_solve(cluster_df, cluster_id, max_deliveries, depth):
     try:
         kmeans = KMeans(n_clusters=n_sub, random_state=42, n_init=10)
         sub_labels = kmeans.fit_predict(delivery_points)
+        
+        # Prevent wasted recursion if points are duplicates/near-duplicates and can't be split
+        unique_labels, counts = np.unique(sub_labels, return_counts=True)
+        if len(unique_labels) < n_sub or max(counts) >= len(delivery_points) - 2:
+            logger.warning(
+                "Cluster %s: KMeans could not split further (duplicate/near-duplicate coordinates) "
+                "— falling back after 1 attempt instead of 5.", cluster_id
+            )
+            return _handle_as_single_deliveries(cluster_df, cluster_id)
+            
     except Exception as e:
         logger.warning(
             "Sub-clustering failed for cluster %s: %s — treating as single deliveries. "
@@ -486,7 +496,7 @@ def _split_and_solve(cluster_df, cluster_id, max_deliveries, depth):
         if mask.sum() == 0:
             continue
         sub_df = cluster_df.iloc[mask]
-        results.extend(process_cluster(sub_df, f"{cluster_id}_{i}", max_deliveries, depth + 1))
+        results.extend(process_cluster(sub_df, f"{cluster_id}_{i}", max_deliveries, depth + 1, max_depth=5))
     return results
 
 
